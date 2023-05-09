@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
-import { LoginComponent } from './pages/login/login.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,14 +14,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     RegistrationComponent,
-    LoginComponent,
     HomepageComponent,
     CheckoutComponent
   ],
@@ -35,7 +33,8 @@ import {MatButtonModule} from '@angular/material/button';
     FlexLayoutModule,
     MatSidenavModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
