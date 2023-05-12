@@ -1,4 +1,8 @@
 export interface Account{
-  username: string
-  password: string
+  id?:number,
+  username: string,
+  password: string,
+  balance:number,
+  isLoggedIn?:boolean
+
 }

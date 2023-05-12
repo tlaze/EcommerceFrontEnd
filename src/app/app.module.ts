@@ -6,7 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { RegistrationComponent } from './pages/registration/registration.component';
+import { RegistrationComponent } from 'src/app/pages/registration/registration.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

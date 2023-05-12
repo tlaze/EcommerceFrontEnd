@@ -29,21 +29,21 @@
 
           <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput type="password" placeholder="password" [(ngModel)]="password" required>
+            <input matInput type="password" placeholder="Password" [(ngModel)]="password" required>
           </mat-form-field>
-          <button (click)="registerSubmit()">Submit</button>
+          <button mat-raised-button (click)="registerSubmit()">Submit</button>
         </mat-tab>
 
         <mat-tab label="Login">
           <mat-form-field>
             <mat-label>Username</mat-label>
-            <input matInput>
+            <input matInput type="text" placeholder="Username" [(ngModel)]="username" required>
           </mat-form-field>
           <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput>
+            <input matInput type="password" placeholder="Password" [(ngModel)]="password" required>
           </mat-form-field>
-          <button>Submit</button>
+          <button mat-raised-button (click)="loginSubmit()">Submit</button>
         </mat-tab>
       </mat-tab-group>
 </div>
