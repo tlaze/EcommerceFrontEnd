@@ -1,5 +1,5 @@
 <div class="container">
-      <mat-tab-group [(selectedIndex)]="tabIndex">
+      <mat-tab-group>
         <mat-tab label="Register">
           <mat-form-field>
             <mat-label>Username</mat-label>
@@ -10,7 +10,9 @@
             <mat-label>Password</mat-label>
             <input matInput type="password" placeholder="Password" [(ngModel)]="password" required>
           </mat-form-field>
-          <button mat-raised-button (click)="registerSubmit()">Submit</button>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="registerSubmit()">Submit</button>
+          </mat-card-actions>
         </mat-tab>
 
         <mat-tab label="Login">
@@ -22,7 +24,9 @@
             <mat-label>Password</mat-label>
             <input matInput type="password" placeholder="Password" [(ngModel)]="password" required>
           </mat-form-field>
-          <button mat-raised-button (click)="loginSubmit()">Submit</button>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="loginSubmit()">Submit</button>
+          </mat-card-actions>
         </mat-tab>
       </mat-tab-group>
 </div>
@@ -31,6 +35,9 @@
 </mat-card>
 <mat-card>
   <mat-card-content *ngIf="duplicateAccount">Account already exists!</mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content *ngIf="accountCreated">Account created!</mat-card-content>
 </mat-card>
 
 

@@ -13,4 +13,8 @@ mat-card{
   align-items:center;
   color:red;
 }
+mat-card-actions{
+  display:flex;
+  justify-content:center;
+}
 
