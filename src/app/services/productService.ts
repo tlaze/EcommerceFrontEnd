@@ -16,4 +16,11 @@ export class ProductService {
     header.append("Access-Control-Allow-Origin", "*");
     return this.http.get<Product[]>("http://localhost:8080/home", {headers:header});
   }
+
+  addToCart(id:number, product:Product){
+    let header: HttpHeaders = new HttpHeaders();
+    header.append("accept", "text/json");
+    header.append("Access-Control-Allow-Origin", "*");
+    return this.http.post<Product>(`http://localhost:8080/cart/${id}`, product, { headers: header });
+  }
 }

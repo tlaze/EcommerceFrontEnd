@@ -1,6 +1,8 @@
 import { Component} from '@angular/core';
 import { Product } from 'src/app/models/products';
+import { Account } from 'src/app/models/accounts';
 import { ProductService } from 'src/app/services/productService';
+import { AuthService } from 'src/app/services/authService';
 
 @Component({
   selector: 'app-homepage',
@@ -9,7 +11,7 @@ import { ProductService } from 'src/app/services/productService';
 })
 export class HomepageComponent {
 
-  constructor(private productService: ProductService){}
+  constructor(private productService: ProductService, public authService:AuthService){}
 
   products: Array<Product> | undefined;
 
@@ -21,7 +23,15 @@ export class HomepageComponent {
     
     this.productService.getAllProducts().subscribe(data => {
       this.products = data;
-      console.log(this.products);
+      // console.log(this.products);
+    })
+  }
+
+  addToCart(accountID:number, product:Product):void{
+    // console.log(productID);
+    // console.log(accountID);
+    this.productService.addToCart(accountID, product).subscribe(data => {
+      console.log(data);
     })
   }
 

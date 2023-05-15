@@ -7,3 +7,7 @@
 button:focus{
   background-color:silver;
 }
+
+mat-sidenav-content{
+  overflow:hidden;
+}
