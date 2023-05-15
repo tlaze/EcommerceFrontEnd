@@ -16,19 +16,11 @@
 <mat-sidenav-container fxFlexFill>
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <a [hidden]="hideLoginButton" href="registration" mat-list-item>
-        <mat-icon>account_circle</mat-icon>
-        Login
-      </a>
-      <a href="home" mat-list-item>
-        <mat-icon>home</mat-icon>
-        Shop</a>
-      <a href="checkout" mat-list-item>
-        <mat-icon>shopping_cart</mat-icon>
-        Cart</a>
-      <a (click)="sidenav.toggle()" mat-list-item>
-        <mat-icon>close</mat-icon> Close
-      </a>
+      <a *ngIf="!ifLoggedIn()" href="registration" mat-list-item><mat-icon>account_circle</mat-icon> Login</a>
+      <a (click)="logout()" href="registration" *ngIf="ifLoggedIn()" mat-list-item><mat-icon>account_circle</mat-icon>Logout</a>
+      <a href="home" mat-list-item><mat-icon>home</mat-icon>Shop</a>
+      <a href="checkout" mat-list-item><mat-icon>shopping_cart</mat-icon>Cart</a>
+      <a (click)="sidenav.toggle()" mat-list-item><mat-icon>close</mat-icon> Close</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content fxFlexFill>
