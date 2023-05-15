@@ -16,6 +16,7 @@ export class RegistrationComponent {
 
   invalidCredentials:boolean = false;
   duplicateAccount:boolean = false;
+  public tabIndex = 1;
 
   constructor(private router: Router, private authService: AuthService){}
 
@@ -26,6 +27,7 @@ export class RegistrationComponent {
     idAsNumber(id : number | undefined) : number {
       return id as number;
     }
+
 
   registerSubmit():void{
 
@@ -40,6 +42,8 @@ export class RegistrationComponent {
       })
       if(!this.duplicateAccount){
         this.authService.registerSubmit(newUser).subscribe();
+        const tabCount = 2;
+        this.tabIndex = (this.tabIndex + 1) % tabCount;
       }
     })
   }
