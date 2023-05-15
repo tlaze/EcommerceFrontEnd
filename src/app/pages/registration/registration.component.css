@@ -9,3 +9,8 @@ input{
   padding:10px;
 }
 
+mat-card{
+  align-items:center;
+  color:red;
+}
+

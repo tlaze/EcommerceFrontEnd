@@ -14,6 +14,9 @@ export class RegistrationComponent {
   username: string = "";
   password: string = "";
 
+  invalidCredentials:boolean = false;
+  duplicateAccount:boolean = false;
+
   constructor(private router: Router, private authService: AuthService){}
 
     ngOnInit():void {
@@ -27,16 +30,17 @@ export class RegistrationComponent {
   registerSubmit():void{
 
     let newUser: Account = {username:this.username, password:this.password, balance:0, isLoggedIn:false}
-    this.authService.registerSubmit(newUser).subscribe()
-
     this.authService.getRegisteredUsers().subscribe(data => {
 //       console.log(data);
-      let duplicate = false;
       data.forEach((users) => {
         if(this.username == users.username){
-          console.log("duplicate");
+//           console.log("duplicate");
+          this.duplicateAccount = true;
         }
       })
+      if(!this.duplicateAccount){
+        this.authService.registerSubmit(newUser).subscribe();
+      }
     })
   }
 
@@ -44,22 +48,23 @@ export class RegistrationComponent {
 
     this.authService.getRegisteredUsers().subscribe(users => {
       for(let i = 0; i < users.length; i++){
-        console.log(users[i]);
+//         console.log(users[i]);
         if(this.username == users[i].username && this.password == users[i].password){
-          console.log("account exists");
           this.authService.loginSubmit(this.idAsNumber(users[i].id)).subscribe(data => {
-            console.log(data);
-          })
-//           localStorage.setItem("login", this.idAsNumber(users[i].id) as unknown as string);
-//           localStorage.setItem("id", this.idAsNumber(users[i].id).toString());
-//           this.authService.isLoggedIn = true;
-//           this.authService.loginID = this.idAsNumber(users[i].id);
-//           this.authService.loginSubmit(this.idAsNumber(users[i].id)).subscribe(data => {
 //             console.log(data);
-//           })
+          })
+          localStorage.setItem("login", this.idAsNumber(users[i].id) as unknown as string);
+          localStorage.setItem("id", this.idAsNumber(users[i].id).toString());
+          this.authService.isLoggedIn = true;
+          this.authService.loginID = this.idAsNumber(users[i].id);
+          this.authService.loginSubmit(this.idAsNumber(users[i].id)).subscribe(data => {
+//             console.log(data);
+            this.router.navigateByUrl('home');
+          })
         }
         else{
           console.log("doesn't exist");
+          this.invalidCredentials = true;
         }
 
       }

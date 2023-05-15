@@ -1,24 +1,3 @@
-<!--<mat-tab-group>-->
-<!--  <mat-tab label="Sign Up">-->
-<!--    <div>-->
-<!--      Username-->
-<!--      <input type="text" placeholder="Username" [(ngModel)]="username" required>-->
-<!--      Password-->
-<!--      <input type="password" placeholder="password" [(ngModel)]="password" required>-->
-<!--      <button (click)="registerSubmit()">Submit</button>-->
-<!--    </div>-->
-<!--  </mat-tab>-->
-<!--  <mat-tab label="Login">-->
-<!--    <div>-->
-<!--      Username-->
-<!--      <input type="text" placeholder="Username" >-->
-<!--      Password-->
-<!--      <input placeholder="password">-->
-<!--      <button>Submit</button>-->
-<!--    </div>-->
-<!--  </mat-tab>-->
-<!--</mat-tab-group>-->
-
 <div class="container">
       <mat-tab-group>
         <mat-tab label="Register">
@@ -47,6 +26,12 @@
         </mat-tab>
       </mat-tab-group>
 </div>
+<mat-card>
+  <mat-card-content *ngIf="invalidCredentials">Invalid input! Try again.</mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content *ngIf="duplicateAccount">Account already exists!</mat-card-content>
+</mat-card>
 
 
 
