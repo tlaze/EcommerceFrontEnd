@@ -1,1 +1,12 @@
-<p>homepage works!</p>
+<h1>Products Page</h1>
+<div class="container">
+    <table mat-table *ngFor="let product of products" class="mat-elevation-z8">
+        <mat-card>
+            <mat-card-header><b>{{product.name}}</b></mat-card-header>
+            <mat-card-content>${{product.price}}</mat-card-content>
+            <img mat-card-image src="{{product.imageUrl}}">
+            <mat-card-actions>{{product.quantity}}</mat-card-actions>
+            <mat-card-footer>{{product.description}}</mat-card-footer>
+        </mat-card>
+    </table>
+</div> 

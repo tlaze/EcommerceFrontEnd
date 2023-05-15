@@ -4,5 +4,4 @@ export interface Account{
   password: string,
   balance:number,
   isLoggedIn?:boolean
-
 }
