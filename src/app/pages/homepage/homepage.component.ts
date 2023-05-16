@@ -19,6 +19,7 @@ export class HomepageComponent {
     this.getProducts();
   }
 
+  // Displays all products on the homepage
   getProducts():void{
     
     this.productService.getAllProducts().subscribe(data => {
@@ -26,10 +27,10 @@ export class HomepageComponent {
     })
   }
 
+  // Sends a post request to the backend to add item to specified user's card
   addToCart(accountID:number, product:Product):void{
     this.productService.addToCart(accountID, product).subscribe(data => {
       console.log(data);
     })
   }
-
 }

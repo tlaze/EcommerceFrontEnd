@@ -13,10 +13,13 @@ export class NavbarComponent {
 
   constructor(private authService:AuthService){}
 
+  // returns user id as a number if it comes back undefined during a subscribe()
   idAsNumber(id : number | undefined) : number {
     return id as number;
   }
 
+  // if user is logged in then it will hide the login button on the navbar and
+  // display it if they aren't logged in
   ifLoggedIn():boolean{
     if(this.authService.isLoggedIn){
       this.authService.isLoggedIn = true;
@@ -29,6 +32,8 @@ export class NavbarComponent {
     }
   }
 
+  // Retrieves all the users in the database and their logged in status is
+  // false. The loginID goes back to 0 and local storage is cleared
   logout():void{
 
     this.authService.getRegisteredUsers().subscribe(data => {

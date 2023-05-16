@@ -24,6 +24,9 @@ export class RegistrationComponent {
       return id as number;
     }
 
+    // Creats a new Account object. And finds all users in the database, If the
+    // new account object has the same username as a previous entry, an error
+    // message will display, if not it will add the new account to the database
   registerSubmit():void{
 
     let newUser: Account = {username:this.username, password:this.password, balance:0, isLoggedIn:false, cart:[]}
@@ -44,6 +47,9 @@ export class RegistrationComponent {
     })
   }
 
+  // Finds all users in the database, if the username and password matches the
+  // user's input, it add's their id to local storage so they remained logged in
+  // on page refresh. Routes user to the home page
   loginSubmit():void{
 
     this.authService.getRegisteredUsers().subscribe(users => {

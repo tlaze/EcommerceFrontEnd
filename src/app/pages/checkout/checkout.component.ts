@@ -24,6 +24,7 @@ export class CheckoutComponent {
   checkoutMessage:Boolean = false;
   constructor(private productService:ProductService, public authService:AuthService){}
 
+  // displays each item in user's cart
   ngOnInit():void{
     this.authService.getCartByID(this.authService.loginID).subscribe(data => {
       console.log(data);
@@ -33,6 +34,8 @@ export class CheckoutComponent {
     })
   }
 
+  // Sends patch request to the backend to clear the user's cart and set their
+  // balance to 0. Message is shown to say order is complete
   checkout(accountID:number):void{
     this.productService.checkout(accountID).subscribe(data => {
       console.log(data);
