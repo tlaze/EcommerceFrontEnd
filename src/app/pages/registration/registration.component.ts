@@ -26,7 +26,7 @@ export class RegistrationComponent {
 
   registerSubmit():void{
 
-    let newUser: Account = {username:this.username, password:this.password, balance:0, isLoggedIn:false}
+    let newUser: Account = {username:this.username, password:this.password, balance:0, isLoggedIn:false, cart:[]}
     this.authService.getRegisteredUsers().subscribe(data => {
       this.duplicateAccount = false;
       data.forEach((users) => {

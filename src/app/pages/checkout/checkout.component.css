@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+    color:#3F51B5;
+}
+
+.container{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+}
+
+mat-card{
+    align-items:center;
+}
+
+.checkout{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}

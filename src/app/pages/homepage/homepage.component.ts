@@ -23,13 +23,10 @@ export class HomepageComponent {
     
     this.productService.getAllProducts().subscribe(data => {
       this.products = data;
-      // console.log(this.products);
     })
   }
 
   addToCart(accountID:number, product:Product):void{
-    // console.log(productID);
-    // console.log(accountID);
     this.productService.addToCart(accountID, product).subscribe(data => {
       console.log(data);
     })

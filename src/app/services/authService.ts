@@ -42,4 +42,11 @@ export class AuthService {
     header.append("Access-Control-Allow-Origin", "*");
     return this.http.patch<Account>(`http://localhost:8080/registration/${id}`, {isLoggedIn: false}, {headers:header});
   }
+
+  getCartByID(id:number){
+    let header : HttpHeaders = new HttpHeaders();
+    header.append("accept", "text/json");
+    header.append("Access-Control-Allow-Origin", "*");
+    return this.http.get<Account[]>(`http://localhost:8080/registration/${id}`, {headers:header});
+  }
 }

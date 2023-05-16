@@ -1,1 +1,16 @@
-<p>checkout works!</p>
+<h1>{{account.username}}'s Cart</h1>
+<div class="container">
+    <table mat-table *ngFor="let cart of cart">
+        <mat-card>
+            <mat-card-header><b>{{cart.name}}</b></mat-card-header>
+            <img mat-card-image src="{{cart.imageUrl}}">
+            <mat-card-content>${{cart.price}}</mat-card-content>
+        </mat-card>
+    </table>
+</div> 
+<div class="checkout">
+    <mat-card-footer>Total: ${{account.balance}}</mat-card-footer>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="checkout()">Checkout</button>
+    </mat-card-actions>
+</div>
