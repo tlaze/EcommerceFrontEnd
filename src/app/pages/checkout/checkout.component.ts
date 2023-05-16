@@ -20,7 +20,9 @@ export class CheckoutComponent {
     isLoggedIn:true,
     cart:[]
   }
-  constructor(private productService:ProductService, private authService:AuthService){}
+
+  checkoutMessage:Boolean = false;
+  constructor(private productService:ProductService, public authService:AuthService){}
 
   ngOnInit():void{
     this.authService.getCartByID(this.authService.loginID).subscribe(data => {
@@ -31,11 +33,11 @@ export class CheckoutComponent {
     })
   }
 
-  checkout():void{
-    console.log("checkout");
-    // console.log(this.authService.loginID);
-    this.authService.getCartByID(this.authService.loginID).subscribe(data => {
+  checkout(accountID:number):void{
+    this.productService.checkout(accountID).subscribe(data => {
       console.log(data);
+      this.ngOnInit();
+      this.checkoutMessage = true;
     })
   }
 

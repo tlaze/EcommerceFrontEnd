@@ -11,9 +11,9 @@ import { AuthService } from 'src/app/services/authService';
 })
 export class HomepageComponent {
 
-  constructor(private productService: ProductService, public authService:AuthService){}
-
   products: Array<Product> | undefined;
+
+  constructor(private productService: ProductService, public authService:AuthService){}
 
   ngOnInit():void{
     this.getProducts();

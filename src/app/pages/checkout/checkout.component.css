@@ -20,3 +20,6 @@ mat-card{
     flex-direction:column;
     align-items:center;
 }
+.orderComplete{
+    color:green;
+}

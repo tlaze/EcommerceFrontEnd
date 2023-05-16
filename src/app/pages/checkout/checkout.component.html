@@ -1,16 +1,20 @@
 <h1>{{account.username}}'s Cart</h1>
 <div class="container">
-    <table mat-table *ngFor="let cart of cart">
+    <table mat-table *ngFor="let item of cart">
         <mat-card>
-            <mat-card-header><b>{{cart.name}}</b></mat-card-header>
-            <img mat-card-image src="{{cart.imageUrl}}">
-            <mat-card-content>${{cart.price}}</mat-card-content>
+            <mat-card-header><b>{{item.name}}</b></mat-card-header>
+            <img mat-card-image src="{{item.imageUrl}}">
+            <mat-card-content>${{item.price}}</mat-card-content>
         </mat-card>
     </table>
 </div> 
 <div class="checkout">
     <mat-card-footer>Total: ${{account.balance}}</mat-card-footer>
     <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="checkout()">Checkout</button>
+        <button mat-raised-button color="primary"
+        (click)="checkout(authService.loginID)">Checkout</button>
     </mat-card-actions>
 </div>
+<mat-card>
+    <mat-card-content class="orderComplete" *ngIf="checkoutMessage">Your order is complete!</mat-card-content>
+</mat-card>
