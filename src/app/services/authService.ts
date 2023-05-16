@@ -14,7 +14,11 @@ export class AuthService {
   constructor(private http: HttpClient) {
     this.isLoggedIn = localStorage.getItem('login') as unknown as boolean
     this.loginID = localStorage.getItem('login') as unknown as number
-   }
+  }
+
+  isAuthenticated(){
+    return this.isLoggedIn;
+  }
 
   getRegisteredUsers(): Observable<Account[]>{
     let header : HttpHeaders = new HttpHeaders();
